@@ -45,7 +45,4 @@ Links úteis
 - PostgreSQL: https://www.postgresql.org
 - pgAdmin: https://www.pgadmin.org
 
-Observações
 
-- A documentação foca em explicar o propósito do projeto, suas camadas e as tecnologias utilizadas.
-- Não inclui instruções de execução ou setup do ambiente.
