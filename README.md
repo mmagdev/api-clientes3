@@ -48,4 +48,4 @@ Links úteis
 Observações
 
 - A documentação foca em explicar o propósito do projeto, suas camadas e as tecnologias utilizadas.
-- Não inclui instruções de execução ou setup do ambiente (conforme solicitado).
+- Não inclui instruções de execução ou setup do ambiente.
