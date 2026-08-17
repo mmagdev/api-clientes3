@@ -17,8 +17,29 @@ public class ClienteRepository {
 
     public void inserir(Cliente cliente) throws Exception {
 
+
         try(var connection = connectionFactory.getConnection()) {
+
+            //Verificar se o cpf já está cadastrado
             var statement = connection.prepareStatement("""
+                SELECT COUNT(*) as qtd
+                FROM clientes
+                WHERE cpf = ?
+                """);
+            statement.setString(1, cliente.getCpf());
+            var result = statement.executeQuery();
+
+            //Capturar a quantidade obtida
+            var qtd = 0;
+            if(result.next()) {
+                qtd = result.getInt("qtd");
+            }
+
+            if(qtd > 0) {
+                throw new IllegalArgumentException("O cpf informado já está cadastrado. Tente outro.");
+            }
+
+            statement = connection.prepareStatement("""
                     INSERT INTO clientes(id, nome, email, cpf, plano_id, datahoracadastro)
                     VALUES(?,?,?,?,?, CURRENT_TIMESTAMP)
                     """);
