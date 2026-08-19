@@ -1,5 +1,6 @@
 package br.com.cotiinformatica.api_clientes.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -12,8 +13,14 @@ public class Cliente {
     private String nome;
     private String email;
     private String cpf;
+
+    @JsonIgnore
     private LocalDateTime dataHoraCadastro;
+
+    @JsonIgnore
     private LocalDateTime dataHoraAlteracao;
+
+    @JsonIgnore
     private LocalDateTime dataHoraExclusao;
     private Boolean ativo;
     private Plano plano;
